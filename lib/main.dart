@@ -101,6 +101,7 @@ class _Main2State extends State<Main2> {
 
   List<Note> foundNotes=[];
 
+  //initializing foundnotes to sample
   @override
   void initState(){
     super.initState();
@@ -109,6 +110,7 @@ class _Main2State extends State<Main2> {
 
   bool _searchBar= false;
 
+    //changing state of search
   void _toggleSearchBar(){
     setState(() {
       _searchBar= !_searchBar;
@@ -117,12 +119,14 @@ class _Main2State extends State<Main2> {
 
   bool _deleteButton = false;
 
+  //changing state of delete
   void _toggleDeleteButton(){
     setState(() {
       _deleteButton= !_deleteButton;
     });
   }
 
+  //chaging foundnotes to searched text
   void searchText(String text){
    setState(() {
      foundNotes= sample.where((note) => note.content.toLowerCase().contains(text.toLowerCase())
@@ -140,6 +144,7 @@ class _Main2State extends State<Main2> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(37, 37, 37, 1),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(37, 37, 37, 1),
         title: Text(
           'Notes',
           style: TextStyle(
@@ -148,7 +153,6 @@ class _Main2State extends State<Main2> {
             fontSize: 43.0,
           ),
         ),
-        backgroundColor: Color.fromRGBO(37, 37, 37, 1),
         actions: [
           Container(
             height: 50.0,

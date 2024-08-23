@@ -159,7 +159,7 @@ Future<void> _dialogBackBox(BuildContext context) async{
                       onPressed: () {
                         Navigator.pop(
                           context,
-                          true
+                          false,
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -187,7 +187,11 @@ Future<void> _dialogBackBox(BuildContext context) async{
   if (discard ==true){
     Navigator.pop(context);
   }
+  else{
+    null;
+  }
 }
+
 
 Future<void> _dialogSaveBox(BuildContext context, TextEditingController _titleController, TextEditingController _contentController) async{
   final shouldSave= await showDialog<bool>(
@@ -245,7 +249,8 @@ Future<void> _dialogSaveBox(BuildContext context, TextEditingController _titleCo
                     onPressed: () {
                       Navigator.pop(
                         context,
-                        true,);
+                        true,
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromRGBO(48, 190, 113, 1),
@@ -272,5 +277,9 @@ Future<void> _dialogSaveBox(BuildContext context, TextEditingController _titleCo
     if( _titleController.text.isNotEmpty || _contentController.text.isNotEmpty){
       Navigator.pop(context, [_titleController.text, _contentController.text]);
     }
+  }
+  else{
+    _titleController.clear();
+    _contentController.clear();
   }
 }
